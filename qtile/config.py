@@ -51,25 +51,23 @@ keys = [
 		desc="Spawn a command using a prompt widget"),
 ]
 
-groups = [Group(i) for i in "123456789"]
+group_names = [("WWW", {'layout': 'max'}),
+               ("DEV", {'layout': 'monadtall'}),
+               ("SYS", {'layout': 'max'}),
+               ("DOC", {'layout': 'max'}),
+               ("CHAT", {'layout': 'max'}),
+               ("MUS", {'layout': 'max'}),
+               ("TOR", {'layout': 'max'})]
 
-for i in groups:
-	keys.extend([
-		# mod1 + letter of group = switch to group
-		Key([mod], i.name, lazy.group[i.name].toscreen(),
-			desc="Switch to group {}".format(i.name)),
+groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
-		# mod1 + shift + letter of group = switch to & move focused window to group
-		Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-			desc="Switch to & move focused window to group {}".format(i.name)),
-		# Or, use below if you prefer not to switch to that group.
-		# # mod1 + shift + letter of group = move focused window to group
-		# Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-		# desc="move focused window to group {}".format(i.name)),
-	])
+for i, (name, kwargs) in enumerate(group_names, 1):
+    keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
+    keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name)))
+
 
 layout_theme = {"border_width": 2,
-                "margin": 0,
+                "margin": 6,
                 "border_focus": "#555753",
                 "border_normal": "#2E3436"
                 }
@@ -77,6 +75,7 @@ layout_theme = {"border_width": 2,
 layouts = [
 	layout.Max(**layout_theme),
 	layout.MonadTall(**layout_theme),
+	#layout.Floating(**layout_theme)
 	#layout.Stack(num_stacks=2),
 ]
 
@@ -101,9 +100,9 @@ screens = [
 			widget.GroupBox(
 				font="Ubuntu Mono",
 				fontsize = 12,
-				rounded = True,
+				rounded = False,
                 disable_drag = True,
-                highlight_method = "block",
+                highlight_method = "line",
                 highlight_color = ['4d4d4d', '4d4d4d'],
 				active = '#f8f8f8',
 				inactive = '#888A85'
