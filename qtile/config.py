@@ -77,7 +77,7 @@ layouts = [
 	#layout.Stack(num_stacks=2),
 ]
 
-colors = [["#282828", "#282828"], # panel background
+colors = [["#181818", "#181818"], # panel background
           ["#f8f8f8", "#f8f8f8"], # group box active
 		  ["#888A85", "#888A85"], # group box inactive
 		  ["#404040", "#404040"], # group box highlight
