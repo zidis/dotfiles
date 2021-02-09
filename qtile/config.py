@@ -51,12 +51,13 @@ keys = [
 		desc="Spawn a command using a prompt widget"),
 ]
 
-group_names = [("WEB", {'layout': 'max'}),
+group_names = [("WEB", {'layout': 'monadtall'}),
                ("DEV", {'layout': 'monadtall'}),
-               ("SYS", {'layout': 'max'}),
-               ("CHAT", {'layout': 'max'}),
-               ("MUS", {'layout': 'max'}),
-               ("TOR", {'layout': 'max'})]
+               ("SYS", {'layout': 'monadtall'}),
+               ("CHAT", {'layout': 'monadtall'}),
+               ("MUS", {'layout': 'monadtall'}),
+			   ("CAL", {'layout': 'monadtall'}),
+               ("TOR", {'layout': 'monadtall'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
@@ -65,7 +66,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name)))
 
 layout_theme = {"border_width": 2,
-                "margin": 6,
+                "margin": 20,
                 "border_focus": "#555753",
                 "border_normal": "#282828"
                 }
@@ -111,7 +112,7 @@ screens = [
                 margin_x = 4,
                 padding_y = 0,
                 padding_x = 3,
-                #borderwidth = 3,
+                borderwidth = 3,
 				rounded = False,
                 disable_drag = True,
                 highlight_method = "line",
@@ -119,35 +120,15 @@ screens = [
 				active = colors[1],
 				inactive = colors[2]
 				),
-			widget.TextBox(
-                text="~",
-                ),
         	widget.CurrentLayout(),
             widget.Spacer(),
-			#widget.TextBox(
-                #text="~",
-                #),
-			#widget.WindowName(),
-			widget.TextBox(
-                text="",
-                ),
 			widget.Volume(),
-			widget.TextBox(
-                text="~",
-                ),
 			widget.KeyboardLayout(),
-			widget.TextBox(
-                text="~",
-                ),
 			widget.Clock(
-				format = "%a %d/%m/%Y"
+				format = "%A %d/%m/%y"
 				),
-			widget.TextBox(
-                text="~",
-                ),
 			widget.Clock(
-				format = "%H:%M",
-				padding = 3
+				format = "%H:%M ",
 				),
             ],
             28,
