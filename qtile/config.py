@@ -51,10 +51,9 @@ keys = [
 		desc="Spawn a command using a prompt widget"),
 ]
 
-group_names = [("WWW", {'layout': 'max'}),
+group_names = [("WEB", {'layout': 'max'}),
                ("DEV", {'layout': 'monadtall'}),
                ("SYS", {'layout': 'max'}),
-               ("DOC", {'layout': 'max'}),
                ("CHAT", {'layout': 'max'}),
                ("MUS", {'layout': 'max'}),
                ("TOR", {'layout': 'max'})]
@@ -69,7 +68,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 layout_theme = {"border_width": 2,
                 "margin": 6,
                 "border_focus": "#555753",
-                "border_normal": "#2E3436"
+                "border_normal": "#282828"
                 }
 
 layouts = [
@@ -79,14 +78,23 @@ layouts = [
 	#layout.Stack(num_stacks=2),
 ]
 
+colors = [["#282828", "#282828"], # panel background
+          ["#f8f8f8", "#f8f8f8"], # group box active
+		  ["#888A85", "#888A85"], # group box inactive
+		  ["#404040", "#404040"], # group box highlight
+          ["#ffffff", "#ffffff"], # font color for group names
+          ["#555753", "#555753"], # border line focus
+          ["#282828", "#282828"]] # border line normal
+
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
 # Default widget settings
 widget_defaults = dict(
 	font="Ubuntu Mono",
 	fontsize = 12,
-	padding = 2,
-	background= "#282828"
+	padding = 3,
+	foreground = colors[4],
+	background = colors[0]
 )
 
 extension_defaults = widget_defaults.copy()
@@ -100,83 +108,50 @@ screens = [
 			widget.GroupBox(
 				font="Ubuntu Mono",
 				fontsize = 12,
+				#margin_y = 3,
+                #margin_x = 3,
+                #padding_y = 3,
+                #padding_x = 3,
+                #borderwidth = 3,
 				rounded = False,
                 disable_drag = True,
                 highlight_method = "line",
-                highlight_color = ['4d4d4d', '4d4d4d'],
-				active = '#f8f8f8',
-				inactive = '#888A85'
+                highlight_color = colors[3],
+				active = colors[1],
+				inactive = colors[2]
 				),
-        	#widget.CurrentLayoutIcon(
-                #foreground="#d8d8d8",
-                #background="#4d4d4d",
-                #scale=0.5,
-                #),
-        	widget.CurrentLayout(
-                foreground="#d8d8d8",
-                #background="#4d4d4d",
-                ),
-            widget.Spacer(),
 			widget.TextBox(
-                text=" ",
-                foreground="#d8d8d8",
-                fontsize=15,
+                text="~",
                 ),
-			widget.WindowName(),
+        	widget.CurrentLayout(),
+            widget.Spacer(),
+			#widget.TextBox(
+                #text="~",
+                #),
+			#widget.WindowName(),
 			widget.TextBox(
                 text="",
-                foreground="#d8d8d8",
-                #background="#4d4d4d",
-                fontsize=15,
                 ),
-			widget.Volume(
-                foreground="#d8d8d8",
-                #background="#4d4d4d",
-                padding=5
-                ),
+			widget.Volume(),
 			widget.TextBox(
-                text="",
-                foreground="#d8d8d8",
-                #background="#4d4d4d",
-                fontsize=15,
+                text="~",
                 ),
-			widget.KeyboardLayout(
-                foreground="#d8d8d8",
-                #background="#4d4d4d",
-                padding=5
-                ),
+			widget.KeyboardLayout(),
 			widget.TextBox(
-                text="",
-                foreground="#d8d8d8",
-                #background="#4d4d4d",
-                fontsize=15,
+                text="~",
                 ),
 			widget.Clock(
-				format = "%a %d/%m/%Y",
-                foreground="#d8d8d8",
-                #background="#4d4d4d",
-				padding = 5
+				format = "%a %d/%m/%Y"
 				),
 			widget.TextBox(
-                text="",
-                foreground="#d8d8d8",
-                #background="#4d4d4d",
-                fontsize=15,
+                text="~",
                 ),
 			widget.Clock(
 				format = "%H:%M",
-                foreground="#d8d8d8",
-                #background="#4d4d4d",
-				padding = 5
+				padding = 3
 				),
-			widget.TextBox(
-                text=" ",
-                foreground="#d8d8d8",
-                #background="#4d4d4d",
-                fontsize=15,
-                ),
             ],
-            26,
+            28,
             #margin=[0, -4, 18, -4],
         ),
         #bottom=bar.Gap(18),
