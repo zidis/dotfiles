@@ -64,7 +64,6 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name)))
 
-
 layout_theme = {"border_width": 2,
                 "margin": 6,
                 "border_focus": "#555753",
@@ -108,10 +107,10 @@ screens = [
 			widget.GroupBox(
 				font="Ubuntu Mono",
 				fontsize = 12,
-				#margin_y = 3,
-                #margin_x = 3,
-                #padding_y = 3,
-                #padding_x = 3,
+				margin_y = 4,
+                margin_x = 4,
+                padding_y = 0,
+                padding_x = 3,
                 #borderwidth = 3,
 				rounded = False,
                 disable_drag = True,
