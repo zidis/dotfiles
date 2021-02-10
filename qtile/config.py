@@ -13,42 +13,41 @@ mod = "mod4"
 terminal = "alacritty"
 
 keys = [
-	# Switch between windows in current stack pane
-	Key([mod], "k", lazy.layout.down(),
-		desc="Move focus down in stack pane"),
-	Key([mod], "j", lazy.layout.up(),
-		desc="Move focus up in stack pane"),
-	Key([mod, "control"], "k", lazy.layout.shuffle_down(),
-		desc="Move window down in current stack "),
-	Key([mod, "control"], "j", lazy.layout.shuffle_up(),
-		desc="Move window up in current stack "),
+	# Window controls
+	Key([mod], "k", lazy.layout.down(), desc="Move focus down in stack pane"),
+	Key([mod], "j", lazy.layout.up(), desc="Move focus up in stack pane"),
+	Key([mod, "control"], "k", lazy.layout.shuffle_down(), desc="Move window down in current stack "),
+	Key([mod, "control"], "j", lazy.layout.shuffle_up(), desc="Move window up in current stack "),
+	
+	Key([mod], "h",
+    lazy.layout.grow(),
+    lazy.layout.increase_nmaster(),
+    desc='Expand window (MonadTall), increase number in master pane (Tile)'
+    ),
+    Key([mod], "l",
+    lazy.layout.shrink(),
+    lazy.layout.decrease_nmaster(),
+    desc='Shrink window (MonadTall), decrease number in master pane (Tile)'
+    ),
+    Key([mod], "n",
+    lazy.layout.normalize(),
+    desc='normalize window size ratios'
+    ),
 
-	# Switch window focus to other pane(s) of stack
-	Key([mod], "space", lazy.layout.next(),
-		desc="Switch window focus to other pane(s) of stack"),
-
-	# Swap panes of split stack
-	Key([mod, "shift"], "space", lazy.layout.rotate(),
-		desc="Swap panes of split stack"),
-
-	# Toggle between split and unsplit sides of stack.
-	# Split = all windows displayed
-	# Unsplit = 1 window displayed, like Max layout, but still with
-	# multiple stack panes
-	Key([mod, "shift"], "Return", lazy.layout.toggle_split(),
-		desc="Toggle between split and unsplit sides of stack"),
+	# Launch terminal
 	Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+	
 	# Launch dmenu
 	Key([mod], "f", lazy.spawn("dmenu_run -p 'Run: '"), desc='Dmenu Run Launcher'),
 
 	# Toggle between different layouts as defined below
 	Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+	
+	# Kill current window
 	Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
 
 	Key([mod, "control"], "r", lazy.restart(), desc="Restart qtile"),
 	Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown qtile"),
-	Key([mod], "r", lazy.spawncmd(),
-		desc="Spawn a command using a prompt widget"),
 ]
 
 group_names = [("WEB", {'layout': 'monadtall'}),
@@ -66,7 +65,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name)))
 
 layout_theme = {"border_width": 2,
-                "margin": 20,
+                "margin": 6,
                 "border_focus": "#555753",
                 "border_normal": "#282828"
                 }
