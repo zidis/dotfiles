@@ -9,8 +9,14 @@ pacman -S redshift
 # tty-clock
 yay -S tty-clock
 
+# spotify
+yay -S spotify-tui
+
 # symlinks
 echo Creating symlinks...
+
+# lightdm
+ln -s /home/zidis/dotfiles/lightdm/lightdm.conf /etc/lightdm/lightdm.conf
 
 # qtile
 ln -s /home/zidis/dotfiles/qtile/config.py /home/zidis/.config/qtile
