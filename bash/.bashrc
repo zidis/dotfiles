@@ -20,6 +20,9 @@ alias la='ls -a'
 alias ll='ls -la'
 alias l.="ls -A | egrep '^\.'"
 
+#clear
+alias c="clear"
+
 # tty-clock
 alias cl="tty-clock -s -S -c -C 7 -D"
 
