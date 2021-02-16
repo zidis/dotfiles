@@ -1,6 +1,7 @@
 #!/bin/bash
+# Author: Giannis Alchazidis https://github.com/zidis
 
-echo "roll.sh v1"
+# echo "roll.sh v1"
 
 while true
 do
