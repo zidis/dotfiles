@@ -1,7 +1,7 @@
 MIT License
 
 Copyright (c) 2021 Giannis Alchazidis  
-https://www.alchazidis.com/  
+https://www.alchazidis.com  
 https://github.com/zidis  
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
