@@ -1,4 +1,5 @@
 #!/bin/bash
+# Author: Giannis Alchazidis https://github.com/zidis
 
 echo "roll.sh v0"
 
