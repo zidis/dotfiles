@@ -1,7 +1,7 @@
 # dotfiles
-Distro: arco (arcolinuxd)
-Window manager: qtile
-Terminal: alacritty
+Distro: arco (arcolinuxd)  
+Window manager: qtile  
+Terminal: alacritty  
 
 ## Installation
 
