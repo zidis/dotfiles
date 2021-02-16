@@ -73,8 +73,8 @@ layout_theme = {"border_width": 2,
 layouts = [
 	layout.Max(**layout_theme),
 	layout.MonadTall(**layout_theme),
+	#layout.Stack(num_stacks=2, **layout_theme),
 	#layout.Floating(**layout_theme)
-	#layout.Stack(num_stacks=2),
 ]
 
 colors = [["#181818", "#181818"], # panel background
@@ -109,11 +109,12 @@ screens = [
 				fontsize = 12,
 				margin_y = 4,
                 margin_x = 4,
-                padding_y = 0,
-                padding_x = 3,
+                #padding_y = 0,
+                #padding_x = 4,
                 borderwidth = 3,
 				rounded = False,
                 disable_drag = True,
+				invert_mouse_wheel = True,
                 highlight_method = "line",
                 highlight_color = colors[3],
 				active = colors[1],
