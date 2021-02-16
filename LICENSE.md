@@ -1,8 +1,8 @@
 MIT License
 
-Copyright (c) 2021 Giannis Alchazidis
-https://www.alchazidis.com/
-https://github.com/zidis
+Copyright (c) 2021 Giannis Alchazidis  
+https://www.alchazidis.com/  
+https://github.com/zidis  
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
